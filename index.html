@@ -256,128 +256,205 @@ header { background:linear-gradient(180deg,#080f18,var(--bg1)); border-bottom:1p
    RESPONSIVE MOBILE
 ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
-  /* Header compact */
-  header { padding:0 10px; gap:8px; height:50px; flex-wrap:nowrap; }
-  .logo { font-size:12px; letter-spacing:1px; }
-  .sys-switch { display:none; }
-  .header-search { max-width:140px; }
-  .header-search input { font-size:11px; padding:5px 8px 5px 26px; }
-  .btn { padding:5px 8px; font-size:8px; letter-spacing:0; }
-  .header-right { gap:4px; }
-
-  /* Layout — sidebar cachée par défaut, toggle */
-  .app { flex-direction:column; height:calc(100vh - 50px); position:relative; }
-  .sidebar {
-    position:fixed;
-    left:-220px;
-    top:50px;
-    height:calc(100vh - 50px);
-    width:220px;
-    z-index:300;
-    transition:left .25s ease;
-    box-shadow:4px 0 20px rgba(0,0,0,.8);
-  }
-  .sidebar.open { left:0; }
-  .sidebar-overlay {
-    display:none;
-    position:fixed;
-    inset:0;
-    top:50px;
-    background:rgba(0,0,0,.6);
-    z-index:299;
-  }
-  .sidebar-overlay.show { display:block; }
-  .main { width:100%; height:100%; }
-
-  /* Menu burger */
-  .burger {
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    cursor:pointer;
-    padding:6px;
-    border:1px solid var(--border);
-    border-radius:3px;
-    background:var(--bg2);
-  }
-  .burger span {
-    width:18px; height:2px;
-    background:var(--gold);
-    border-radius:1px;
-    box-shadow:0 0 4px rgba(255,224,64,.5);
-    transition:all .2s;
+  /* ── Variables mobiles ── */
+  :root {
+    --ctrl-btn-w: 38px;
+    --ctrl-btn-h: 44px;
+    --ctrl-btn-fs: 22px;
+    --ctrl-input-w: 64px;
+    --ctrl-input-h: 44px;
+    --ctrl-input-fs: 18px;
   }
 
-  /* System switcher mobile — dans sidebar */
+  /* ── Header ── */
+  header {
+    padding: 0 10px;
+    gap: 8px;
+    height: 52px;
+    flex-wrap: nowrap;
+  }
+  .logo { font-size: 13px; letter-spacing: 1px; }
+  .sys-switch { display: none; }
+  .header-search { max-width: 130px; }
+  .header-search input { font-size: 12px; padding: 6px 8px 6px 28px; }
+  .btn { padding: 6px 10px; font-size: 9px; letter-spacing: 0; }
+  .header-right { gap: 4px; }
+  #syncStatus { display: none !important; }
+
+  /* ── Système switch dans la sidebar ── */
   .sys-switch-mobile {
-    display:flex;
-    gap:0;
-    border:1px solid var(--border2);
-    border-radius:4px;
-    overflow:hidden;
-    margin:10px 12px;
+    display: flex !important;
+    margin: 10px 10px 0;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    overflow: hidden;
   }
   .sys-btn-m {
-    flex:1;
-    font-family:'Orbitron',monospace;
-    font-size:9px;
-    font-weight:700;
-    padding:6px 4px;
-    cursor:pointer;
-    background:transparent;
-    border:none;
-    color:var(--muted);
-    text-align:center;
-    transition:all .2s;
+    flex: 1;
+    font-family: 'Orbitron', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 8px 4px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    text-align: center;
+    transition: all .2s;
   }
-  .sys-btn-m.active { background:var(--bg3); color:var(--gold); text-shadow:var(--neon-gold); }
+  .sys-btn-m.active {
+    background: var(--bg3);
+    color: var(--gold);
+    text-shadow: var(--neon-gold);
+  }
 
-  /* Top bar */
-  .top-bar { padding:6px 10px; gap:6px; }
-  .top-bar-title { font-size:12px; }
-  .filter-chip { font-size:11px; padding:4px 8px; }
+  /* ── Layout ── */
+  .app { position: relative; height: calc(100vh - 52px); }
+  .sidebar {
+    position: fixed;
+    left: -240px;
+    top: 52px;
+    width: 240px;
+    height: calc(100vh - 52px);
+    z-index: 300;
+    transition: left .25s ease;
+    box-shadow: 4px 0 24px rgba(0,0,0,.9);
+    overflow-y: auto;
+  }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: 52px;
+    background: rgba(0,0,0,.7);
+    z-index: 299;
+  }
+  .sidebar-overlay.show { display: block; }
+  .main { width: 100%; }
 
-  /* Stats bar */
-  .stats-bar { padding:6px 10px; gap:10px; }
-  .stat-v { font-size:16px; }
-  .stat-l { font-size:10px; }
+  /* ── Burger ── */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 7px 8px;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    background: var(--bg2);
+  }
+  .burger span {
+    width: 20px; height: 2px;
+    background: var(--gold);
+    border-radius: 1px;
+    box-shadow: 0 0 4px rgba(255,224,64,.5);
+  }
 
-  /* Content */
-  .content { padding:8px; }
+  /* ── Top bar ── */
+  .top-bar {
+    padding: 8px 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .top-bar-title { font-size: 13px; }
+  .filter-chip { font-size: 12px; padding: 5px 10px; }
 
-  /* Cat header */
-  .cat-header { padding:10px 12px; }
-  .cat-label { font-size:12px; }
-  .cat-count { font-size:11px; }
-  .cat-total { font-size:11px; }
+  /* ── Stats ── */
+  .stats-bar { padding: 6px 10px; gap: 12px; }
+  .stat-v { font-size: 18px; }
+  .stat-l { font-size: 11px; }
 
-  /* Item table */
-  .item-table th { font-size:11px; padding:7px 10px; }
-  .item-row td { padding:8px 10px; }
-  .item-name { font-size:16px; }
-  .item-info { font-size:11px; }
+  /* ── Content ── */
+  .content {
+    padding: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
 
-  /* Qty controls */
-  .qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
-  .qty-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+  /* ── Cat accordion ── */
+  .cat-header { padding: 12px 14px; min-height: 48px; }
+  .cat-label { font-size: 13px; }
+  .cat-count, .cat-total { font-size: 12px; }
 
-  /* Comp sizes — stack vertically on mobile */
-  .comp-cell { gap:8px; flex-wrap:wrap; }
-  .comp-size-group { flex-direction:row; align-items:center; gap:6px; }
-  .comp-size-lbl { width:28px; text-align:right; }
-  .comp-qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
-  .comp-size-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+  /* ── Item rows ── */
+  .item-table th { font-size: 12px; padding: 8px 10px; }
+  .item-row { border-bottom: 1px solid var(--border); }
+  .item-row td { padding: 10px; height: auto !important; }
+  .item-name { font-size: 16px; }
+  .item-info { font-size: 12px; }
 
-  /* Notes input */
-  .notes-input { font-size:14px; }
+  /* ── QTY WRAP — forcer flex-direction:row ── */
+  .qty-wrap {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  .qty-btn {
+    width: var(--ctrl-btn-w) !important;
+    height: var(--ctrl-btn-h) !important;
+    font-size: var(--ctrl-btn-fs) !important;
+    flex-direction: unset !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .qty-input {
+    width: var(--ctrl-input-w) !important;
+    height: var(--ctrl-input-h) !important;
+    font-size: var(--ctrl-input-fs) !important;
+  }
 
-  /* Résumé — badges lieux en colonne */
-  .item-row td:last-child > div { flex-direction:column; align-items:flex-start; }
+  /* ── COMP SIZES — horizontal + scroll ── */
+  .comp-cell {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .comp-size-group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-shrink: 0;
+    gap: 4px;
+  }
+  .comp-qty-wrap {
+    display: inline-flex !important;
+    flex-direction: row !important;
+  }
+  .comp-qty-btn {
+    width: 32px !important;
+    height: 38px !important;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .comp-size-input {
+    width: 48px !important;
+    height: 38px !important;
+    font-size: 15px !important;
+  }
+
+  /* ── Comp3d — scroll horizontal ── */
+  .cat-body { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .comp3d-table { min-width: 400px; }
+  .comp3d-table td, .comp3d-table th { padding: 5px 6px; font-size: 12px; }
+  .comp3d-input {
+    width: 42px !important;
+    height: 32px !important;
+    font-size: 13px !important;
+  }
+
+  /* ── Notes ── */
+  .notes-input { font-size: 15px; }
 }
 
-@media (max-width:480px) {
-  .header-search { display:none; }
-  .item-name { font-size:15px; }
+@media (max-width: 480px) {
+  .header-search { display: none; }
 }
 
 /* ── UNIFIED CONTROL SIZES ── */
@@ -647,7 +724,8 @@ const CATEGORIES = [
   {
     id:"med", label:"Médical", color:"var(--cat-drug)", type:"simple",
     items:[
-      {name:"Medical Supplies", info:"Seule entrée médicale"},
+      {name:"Medical Supplies"},
+      {name:"Stim"},
     ]
   },
   {
@@ -959,7 +1037,12 @@ function buildSidebar() {
   const el = document.getElementById('sidebar');
   const groups = [...new Set(sysLieux().map(l=>l.group))];
   const groupColors = {Villes:'var(--gold)',Stations:'var(--cyan)'};
-  let html = `<div class="sidebar-section">
+  let html = `<div class="sys-switch-mobile" style="display:none">
+    <button class="sys-btn-m${currentSystem==='stanton'?' active':''}" onclick="setSystem('stanton');closeSidebar()">STANTON</button>
+    <button class="sys-btn-m${currentSystem==='pyro'?' active':''}" onclick="setSystem('pyro');closeSidebar()">PYRO</button>
+    <button class="sys-btn-m${currentSystem==='nyx'?' active':''}" onclick="setSystem('nyx');closeSidebar()">NYX</button>
+  </div>
+  <div class="sidebar-section">
     <div class="sidebar-item${currentView==='resume'?' active':''}" onclick="openResume()">
       <span>📊</span><span>Résumé global</span>
     </div></div>`;
