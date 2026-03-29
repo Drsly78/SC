@@ -44,6 +44,7 @@ header { background:linear-gradient(180deg,#080f18,var(--bg1)); border-bottom:1p
 
 /* SYSTEM SWITCHER */
 .sys-switch { display:flex; gap:0; border:1px solid var(--border2); border-radius:4px; overflow:hidden; }
+.sys-switch-mobile { display:none; }
 .sys-btn { font-family:'Orbitron',monospace; font-size:9px; font-weight:700; letter-spacing:1px; padding:6px 14px; cursor:pointer; background:transparent; border:none; color:var(--muted); transition:all .2s; }
 .sys-btn.active { background:var(--bg3); color:var(--gold); text-shadow:var(--neon-gold); }
 .sys-btn:hover:not(.active) { color:var(--text); background:var(--bg2); }
@@ -455,6 +456,50 @@ header { background:linear-gradient(180deg,#080f18,var(--bg1)); border-bottom:1p
 
 @media (max-width: 480px) {
   .header-search { display: none; }
+}
+
+/* ── RESUME MOBILE ── */
+@media (max-width: 768px) {
+  /* Résumé : transformer le tableau en cartes empilées */
+  .item-table-resume { display: block; width: 100%; }
+  .item-table-resume thead { display: none; }
+  .item-table-resume tbody { display: block; }
+  .item-table-resume tr.item-row {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    gap: 6px;
+  }
+  .item-table-resume tr.item-row td {
+    display: block !important;
+    padding: 0 !important;
+    width: 100% !important;
+    border: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  /* Ligne total : inline avec le nom */
+  .item-table-resume .col-item,
+  .item-table-resume .col-detail,
+  .item-table-resume .col-total {
+    display: inline-block !important;
+    width: auto !important;
+  }
+  .item-table-resume .col-item { margin-right: 8px; }
+  .item-table-resume .col-total { margin-left: 8px; }
+  /* Lieux : prend toute la largeur, wrap */
+  .item-table-resume .col-lieux > div {
+    flex-wrap: wrap !important;
+    gap: 6px;
+  }
+  /* Detail row plein écran */
+  .item-table-resume tr[id^="detail_"] td {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ── UNIFIED CONTROL SIZES ── */
@@ -1037,7 +1082,7 @@ function buildSidebar() {
   const el = document.getElementById('sidebar');
   const groups = [...new Set(sysLieux().map(l=>l.group))];
   const groupColors = {Villes:'var(--gold)',Stations:'var(--cyan)'};
-  let html = `<div class="sys-switch-mobile" style="display:none">
+  let html = `<div class="sys-switch-mobile">
     <button class="sys-btn-m${currentSystem==='stanton'?' active':''}" onclick="setSystem('stanton');closeSidebar()">STANTON</button>
     <button class="sys-btn-m${currentSystem==='pyro'?' active':''}" onclick="setSystem('pyro');closeSidebar()">PYRO</button>
     <button class="sys-btn-m${currentSystem==='nyx'?' active':''}" onclick="setSystem('nyx');closeSidebar()">NYX</button>
