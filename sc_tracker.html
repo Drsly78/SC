@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SC Inventory">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#04080e">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDE4MjUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODBlIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBlNWZmIiBzdG9wLW9wYWNpdHk9IjAuMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMGU1ZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iMzYiIGZpbGw9InVybCgjYmcpIi8+CiAgPCEtLSBPdXRlciByaW5nIC0tPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iOTAiIHI9Ijc4IiBmaWxsPSJub25lIiBzdHJva2U9IiMxZTNhNWEiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGNpcmNsZSBjeD0iOTAiIGN5PSI5MCIgcj0iNzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZTA0MCIgc3Ryb2tlLXdpZHRoPSIwLjgiIG9wYWNpdHk9IjAuNCIvPgogIDwhLS0gR2xvdyAtLT4KICA8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSI2MCIgZmlsbD0idXJsKCNnbG93KSIvPgogIDwhLS0gU2hpcCBzaWxob3VldHRlIOKAlCBzdHlsaXplZCBTQyBzaGlwIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwLDkwKSI+CiAgICA8IS0tIE1haW4gaHVsbCAtLT4KICAgIDxwYXRoIGQ9Ik0wLC00MiBMOCwtMjAgTDIyLDEwIEwxNCwxNCBMMCw4IEwtMTQsMTQgTC0yMiwxMCBMLTgsLTIwIFoiCiAgICAgICAgICBmaWxsPSIjZmZlMDQwIiBvcGFjaXR5PSIwLjk1Ii8+CiAgICA8IS0tIFdpbmcgbGVmdCAtLT4KICAgIDxwYXRoIGQ9Ik0tOCwtMTAgTC0zOCwxOCBMLTI4LDIyIEwtMTQsNiBaIgogICAgICAgICAgZmlsbD0iI2YwYzA0MCIgb3BhY2l0eT0iMC44NSIvPgogICAgPCEtLSBXaW5nIHJpZ2h0IC0tPgogICAgPHBhdGggZD0iTTgsLTEwIEwzOCwxOCBMMjgsMjIgTDE0LDYgWiIKICAgICAgICAgIGZpbGw9IiNmMGMwNDAiIG9wYWNpdHk9IjAuODUiLz4KICAgIDwhLS0gRW5naW5lIGdsb3cgbGVmdCAtLT4KICAgIDxlbGxpcHNlIGN4PSItMjAiIGN5PSIyMCIgcng9IjUiIHJ5PSIzIiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSItMjAiIGN5PSIyMCIgcng9IjgiIHJ5PSI1IiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjMiLz4KICAgIDwhLS0gRW5naW5lIGdsb3cgcmlnaHQgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjAiIGN5PSIyMCIgcng9IjUiIHJ5PSIzIiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIyMCIgY3k9IjIwIiByeD0iOCIgcnk9IjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuMyIvPgogICAgPCEtLSBDZW50ZXIgZW5naW5lIC0tPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIxMCIgcng9IjQiIHJ5PSIyLjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuOSIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIxMCIgcng9IjciIHJ5PSI0IiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjMiLz4KICAgIDwhLS0gQ29ja3BpdCAtLT4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iLTI4IiByeD0iNCIgcnk9IjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuOCIvPgogICAgPCEtLSBIdWxsIGRldGFpbCBsaW5lcyAtLT4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTM1IiB4Mj0iMCIgeTI9IjYiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIwLjgiIG9wYWNpdHk9IjAuNCIvPgogICAgPGxpbmUgeDE9Ii02IiB5MT0iLTE1IiB4Mj0iNiIgeTI9Ii0xNSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjAuOCIgb3BhY2l0eT0iMC4zIi8+CiAgPC9nPgogIDwhLS0gQ29ybmVyIHN0YXJzIC0tPgogIDxjaXJjbGUgY3g9IjIyIiBjeT0iMjIiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMTU4IiBjeT0iMjIiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMjIiIGN5PSIxNTgiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMTU4IiBjeT0iMTU4IiByPSIxLjUiIGZpbGw9IiNmZmUwNDAiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iMTYiIHI9IjEiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjM1IiBjeT0iNTAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNCIvPgogIDxjaXJjbGUgY3g9IjE0NSIgY3k9IjEzMCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNDAiIHI9IjAuOCIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC41Ii8+CiAgPGNpcmNsZSBjeD0iMTQwIiBjeT0iNDUiIHI9IjAuOCIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC41Ii8+CiAgPCEtLSBUZXh0IC0tPgogIDx0ZXh0IHg9IjkwIiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgZm9udC1zaXplPSIxMyIgZmlsbD0iI2ZmZTA0MCIgbGV0dGVyLXNwYWNpbmc9IjMiIG9wYWNpdHk9IjAuOSI+U0NJTlY8L3RleHQ+Cjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8ZGVmcz4KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iYmciIGN4PSI1MCUiIGN5PSI1MCUiIHI9IjUwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMwZDE4MjUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDQwODBlIi8+CiAgICA8L3JhZGlhbEdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50IGlkPSJnbG93IiBjeD0iNTAlIiBjeT0iNTAlIiByPSI1MCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBlNWZmIiBzdG9wLW9wYWNpdHk9IjAuMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMGU1ZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPC9yYWRpYWxHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBCYWNrZ3JvdW5kIC0tPgogIDxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iMzYiIGZpbGw9InVybCgjYmcpIi8+CiAgPCEtLSBPdXRlciByaW5nIC0tPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iOTAiIHI9Ijc4IiBmaWxsPSJub25lIiBzdHJva2U9IiMxZTNhNWEiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGNpcmNsZSBjeD0iOTAiIGN5PSI5MCIgcj0iNzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZTA0MCIgc3Ryb2tlLXdpZHRoPSIwLjgiIG9wYWNpdHk9IjAuNCIvPgogIDwhLS0gR2xvdyAtLT4KICA8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSI2MCIgZmlsbD0idXJsKCNnbG93KSIvPgogIDwhLS0gU2hpcCBzaWxob3VldHRlIOKAlCBzdHlsaXplZCBTQyBzaGlwIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkwLDkwKSI+CiAgICA8IS0tIE1haW4gaHVsbCAtLT4KICAgIDxwYXRoIGQ9Ik0wLC00MiBMOCwtMjAgTDIyLDEwIEwxNCwxNCBMMCw4IEwtMTQsMTQgTC0yMiwxMCBMLTgsLTIwIFoiCiAgICAgICAgICBmaWxsPSIjZmZlMDQwIiBvcGFjaXR5PSIwLjk1Ii8+CiAgICA8IS0tIFdpbmcgbGVmdCAtLT4KICAgIDxwYXRoIGQ9Ik0tOCwtMTAgTC0zOCwxOCBMLTI4LDIyIEwtMTQsNiBaIgogICAgICAgICAgZmlsbD0iI2YwYzA0MCIgb3BhY2l0eT0iMC44NSIvPgogICAgPCEtLSBXaW5nIHJpZ2h0IC0tPgogICAgPHBhdGggZD0iTTgsLTEwIEwzOCwxOCBMMjgsMjIgTDE0LDYgWiIKICAgICAgICAgIGZpbGw9IiNmMGMwNDAiIG9wYWNpdHk9IjAuODUiLz4KICAgIDwhLS0gRW5naW5lIGdsb3cgbGVmdCAtLT4KICAgIDxlbGxpcHNlIGN4PSItMjAiIGN5PSIyMCIgcng9IjUiIHJ5PSIzIiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSItMjAiIGN5PSIyMCIgcng9IjgiIHJ5PSI1IiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjMiLz4KICAgIDwhLS0gRW5naW5lIGdsb3cgcmlnaHQgLS0+CiAgICA8ZWxsaXBzZSBjeD0iMjAiIGN5PSIyMCIgcng9IjUiIHJ5PSIzIiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjkiLz4KICAgIDxlbGxpcHNlIGN4PSIyMCIgY3k9IjIwIiByeD0iOCIgcnk9IjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuMyIvPgogICAgPCEtLSBDZW50ZXIgZW5naW5lIC0tPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIxMCIgcng9IjQiIHJ5PSIyLjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuOSIvPgogICAgPGVsbGlwc2UgY3g9IjAiIGN5PSIxMCIgcng9IjciIHJ5PSI0IiBmaWxsPSIjMDBlNWZmIiBvcGFjaXR5PSIwLjMiLz4KICAgIDwhLS0gQ29ja3BpdCAtLT4KICAgIDxlbGxpcHNlIGN4PSIwIiBjeT0iLTI4IiByeD0iNCIgcnk9IjUiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuOCIvPgogICAgPCEtLSBIdWxsIGRldGFpbCBsaW5lcyAtLT4KICAgIDxsaW5lIHgxPSIwIiB5MT0iLTM1IiB4Mj0iMCIgeTI9IjYiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIwLjgiIG9wYWNpdHk9IjAuNCIvPgogICAgPGxpbmUgeDE9Ii02IiB5MT0iLTE1IiB4Mj0iNiIgeTI9Ii0xNSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjAuOCIgb3BhY2l0eT0iMC4zIi8+CiAgPC9nPgogIDwhLS0gQ29ybmVyIHN0YXJzIC0tPgogIDxjaXJjbGUgY3g9IjIyIiBjeT0iMjIiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMTU4IiBjeT0iMjIiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMjIiIGN5PSIxNTgiIHI9IjEuNSIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC42Ii8+CiAgPGNpcmNsZSBjeD0iMTU4IiBjeT0iMTU4IiByPSIxLjUiIGZpbGw9IiNmZmUwNDAiIG9wYWNpdHk9IjAuNiIvPgogIDxjaXJjbGUgY3g9IjkwIiBjeT0iMTYiIHI9IjEiIGZpbGw9IiMwMGU1ZmYiIG9wYWNpdHk9IjAuNyIvPgogIDxjaXJjbGUgY3g9IjM1IiBjeT0iNTAiIHI9IjEiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNCIvPgogIDxjaXJjbGUgY3g9IjE0NSIgY3k9IjEzMCIgcj0iMSIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ii8+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSIxNDAiIHI9IjAuOCIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC41Ii8+CiAgPGNpcmNsZSBjeD0iMTQwIiBjeT0iNDUiIHI9IjAuOCIgZmlsbD0iI2ZmZTA0MCIgb3BhY2l0eT0iMC41Ii8+CiAgPCEtLSBUZXh0IC0tPgogIDx0ZXh0IHg9IjkwIiB5PSIxNTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtd2VpZ2h0PSI5MDAiCiAgICAgICAgZm9udC1zaXplPSIxMyIgZmlsbD0iI2ZmZTA0MCIgbGV0dGVyLXNwYWNpbmc9IjMiIG9wYWNpdHk9IjAuOSI+U0NJTlY8L3RleHQ+Cjwvc3ZnPg==">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC Inventory Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #04080e; --bg1: #080f1a; --bg2: #0d1825; --bg3: #122030;
+  --border:  #162840; --border2: #1e3a5a;
+  --text:    #d0e8ff; --muted: #4a7090; --white: #f0f8ff;
+  --gold:    #ffe040; --gold2: #c89820;
+  --cyan:    #00e5ff; --cyan2: #00aac0;
+  --green:   #00ff88; --green2: #00aa55;
+  --red:     #ff3040; --orange: #ff8020; --purple: #c060ff;
+
+  --neon-gold:   0 0 8px #ffe040, 0 0 20px rgba(255,224,64,.4);
+  --neon-cyan:   0 0 8px #00e5ff, 0 0 20px rgba(0,229,255,.4);
+  --neon-green:  0 0 8px #00ff88, 0 0 20px rgba(0,255,136,.4);
+  --neon-red:    0 0 8px #ff3040, 0 0 20px rgba(255,48,64,.4);
+  --neon-purple: 0 0 8px #c060ff, 0 0 20px rgba(192,96,255,.4);
+  --neon-orange: 0 0 8px #ff8020, 0 0 20px rgba(255,128,32,.4);
+
+  --cat-ore:  #ff6820; --cat-mat: #20a0ff; --cat-gas: #00ff88;
+  --cat-drug: #c060ff; --cat-gems: #00ffcc; --cat-comp: #ffe040;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:'Exo 2',sans-serif; font-size:20px; min-height:100vh; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,20,40,.12) 2px,rgba(0,20,40,.12) 4px); pointer-events:none; z-index:9999; }
+
+/* HEADER */
+header { background:linear-gradient(180deg,#080f18,var(--bg1)); border-bottom:1px solid var(--border2); padding:0 20px; display:flex; align-items:center; gap:16px; height:56px; position:sticky; top:0; z-index:200; box-shadow:0 4px 24px rgba(0,0,0,.6); }
+.logo { font-family:'Orbitron',monospace; font-weight:900; font-size:15px; color:var(--gold); letter-spacing:2px; text-shadow:var(--neon-gold); white-space:nowrap; }
+.logo span { color:var(--cyan); text-shadow:var(--neon-cyan); }
+
+/* SYSTEM SWITCHER */
+.sys-switch { display:flex; gap:0; border:1px solid var(--border2); border-radius:4px; overflow:hidden; }
+.sys-btn { font-family:'Orbitron',monospace; font-size:9px; font-weight:700; letter-spacing:1px; padding:6px 14px; cursor:pointer; background:transparent; border:none; color:var(--muted); transition:all .2s; }
+.sys-btn.active { background:var(--bg3); color:var(--gold); text-shadow:var(--neon-gold); }
+.sys-btn:hover:not(.active) { color:var(--text); background:var(--bg2); }
+
+.header-search { flex:1; max-width:280px; position:relative; }
+.header-search input { width:100%; background:var(--bg2); border:1px solid var(--border); border-radius:4px; color:var(--text); font-family:'Share Tech Mono',monospace; font-size:12px; padding:6px 10px 6px 30px; outline:none; transition:border-color .2s; }
+.header-search input:focus { border-color:var(--cyan2); }
+.header-search input::placeholder { color:var(--muted); }
+.header-search::before { content:'⌕'; position:absolute; left:8px; top:50%; transform:translateY(-50%); color:var(--muted); font-size:15px; pointer-events:none; }
+
+.header-right { margin-left:auto; display:flex; gap:8px; align-items:center; }
+.btn { font-family:'Orbitron',monospace; font-size:9px; font-weight:700; letter-spacing:1px; padding:6px 12px; border-radius:3px; border:1px solid; cursor:pointer; transition:all .2s; text-transform:uppercase; }
+.btn-cyan { background:transparent; border-color:var(--cyan2); color:var(--cyan); }
+.btn-cyan:hover { background:rgba(48,184,232,.1); }
+.btn-gold { background:rgba(240,192,64,.08); border-color:var(--gold2); color:var(--gold); }
+.btn-gold:hover { background:rgba(240,192,64,.18); }
+.btn-green { background:rgba(64,216,128,.08); border-color:var(--green2); color:var(--green); }
+.btn-green:hover { background:rgba(64,216,128,.18); }
+
+/* LAYOUT */
+.app { display:flex; height:calc(100vh - 56px); }
+
+/* SIDEBAR */
+.sidebar { width:200px; min-width:200px; background:var(--bg1); border-right:1px solid var(--border); display:flex; flex-direction:column; overflow-y:auto; }
+
+.sidebar-section { border-bottom:1px solid var(--border); }
+.sidebar-title { font-family:'Orbitron',monospace; font-size:11px; font-weight:700; letter-spacing:2px; color:var(--muted); padding:8px 12px 4px; }
+.sidebar-item { display:flex; align-items:center; gap:8px; padding:8px 12px; cursor:pointer; transition:all .15s; font-size:15px; color:var(--text); border-left:2px solid transparent; }
+.sidebar-item:hover { background:var(--bg2); }
+.sidebar-item.active { background:var(--bg2); color:var(--cyan); border-left-color:var(--cyan); text-shadow:var(--neon-cyan); }
+.sidebar-item .badge { margin-left:auto; font-family:'Share Tech Mono',monospace; font-size:12px; color:var(--gold); background:rgba(255,224,64,.08); border:1px solid rgba(255,224,64,.3); border-radius:2px; padding:1px 5px; text-shadow:var(--neon-gold); }
+
+/* MAIN */
+.main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+
+/* TOP BAR */
+.top-bar { display:flex; align-items:center; gap:10px; padding:8px 16px; background:var(--bg1); border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.top-bar-title { font-family:'Orbitron',monospace; font-size:15px; font-weight:700; color:var(--gold); text-shadow:var(--neon-gold); }
+.filter-chip { font-family:'Share Tech Mono',monospace; font-size:13px; padding:4px 10px; border-radius:2px; border:1px solid var(--border); background:transparent; color:var(--muted); cursor:pointer; transition:all .15s; }
+.filter-chip:hover { border-color:var(--border2); color:var(--text); }
+.filter-chip.active { border-color:var(--cyan2); color:var(--cyan); background:rgba(48,184,232,.08); }
+.filter-chip.f-stock { border-color:var(--border2); color:var(--muted); font-size:13px; }
+.filter-chip.f-stock.active { border-color:var(--green2); color:var(--green); background:rgba(0,255,136,.08); box-shadow:0 0 8px rgba(0,255,136,.3); text-shadow:var(--neon-green); }
+
+/* CONTENT */
+.content { flex:1; overflow:auto; padding:16px; }
+/* ── SCROLLBARS STYLÉES ── */
+::-webkit-scrollbar { width:8px; height:8px; }
+::-webkit-scrollbar-track {
+  background: var(--bg1);
+  border-left: 1px solid var(--border);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cyan2), var(--purple));
+  border-radius: 4px;
+  border: 1px solid var(--bg);
+  box-shadow: 0 0 6px rgba(0,229,255,.5), inset 0 0 4px rgba(0,229,255,.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 12px rgba(0,229,255,.8), inset 0 0 6px rgba(0,229,255,.3);
+}
+::-webkit-scrollbar-corner { background: var(--bg1); }
+
+/* Scrollbar horizontale du résumé */
+.resume-wrap::-webkit-scrollbar { height:8px; }
+.resume-wrap::-webkit-scrollbar-track {
+  background: var(--bg1);
+  border-top: 1px solid var(--border);
+}
+.resume-wrap::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--cyan2), var(--purple));
+  border-radius: 4px;
+  border: 1px solid var(--bg);
+  box-shadow: 0 0 8px rgba(0,229,255,.5);
+}
+.resume-wrap::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--cyan), var(--purple));
+  box-shadow: 0 0 14px rgba(0,229,255,.9);
+}
+
+/* Top scrollbar mirror */
+.resume-scroll-top { overflow-x:auto; overflow-y:hidden; height:10px; margin-bottom:3px; }
+.resume-scroll-top::-webkit-scrollbar { height:10px; }
+.resume-scroll-top::-webkit-scrollbar-track {
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+}
+.resume-scroll-top::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--gold2), var(--orange));
+  border-radius: 4px;
+  border: 1px solid var(--bg);
+  box-shadow: 0 0 8px rgba(255,224,64,.5);
+}
+.resume-scroll-top::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--gold), var(--orange));
+  box-shadow: 0 0 14px rgba(255,224,64,.9);
+}
+
+.sidebar::-webkit-scrollbar { width:6px; }
+.sidebar::-webkit-scrollbar-track { background: var(--bg1); }
+.sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold2), var(--cyan2));
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,229,255,.4);
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 10px rgba(0,229,255,.8);
+}
+
+/* CATEGORY ACCORDION */
+.cat-block { margin-bottom:6px; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+.cat-header { display:flex; align-items:center; gap:10px; padding:10px 14px; cursor:pointer; background:var(--bg1); transition:background .15s; user-select:none; }
+.cat-header:hover { background:var(--bg2); }
+.cat-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; filter:drop-shadow(0 0 4px currentColor); }
+.cat-label { font-family:'Orbitron',monospace; font-size:14px; font-weight:700; letter-spacing:1.5px; color:var(--text); }
+.cat-count { font-family:'Share Tech Mono',monospace; font-size:13px; color:var(--muted); }
+.cat-total { font-family:'Share Tech Mono',monospace; font-size:13px; color:var(--gold); text-shadow:var(--neon-gold); margin-left:auto; }
+.cat-chevron { margin-left:4px; color:var(--muted); font-size:11px; transition:transform .2s; }
+.cat-stock-dot { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:var(--neon-green); flex-shrink:0; }
+.cat-block.open .cat-chevron { transform:rotate(180deg); }
+.cat-body { display:none; border-top:1px solid var(--border); }
+.cat-block.open .cat-body { display:block; }
+
+/* ITEM TABLE */
+.item-table { width:100%; border-collapse:collapse; }
+.item-table-resume { width:100%; border-collapse:collapse; table-layout:fixed; }
+.item-table-resume th { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; letter-spacing:1px; color:var(--muted); padding:10px 18px; text-align:left; background:var(--bg2); border-bottom:1px solid var(--border); overflow:hidden; }
+.item-table-resume td { padding:10px 16px; vertical-align:middle; border-bottom:1px solid rgba(30,58,90,.4); overflow:hidden; }
+.item-table-resume .col-item   { width:200px; }
+.item-table-resume .col-detail { width:100px; text-align:left; }
+.item-table-resume .col-total  { width:80px; text-align:center; }
+.item-table-resume .col-lieux  { }
+.item-table th { font-family:'Orbitron',monospace; font-size:13px; font-weight:700; letter-spacing:1px; color:var(--muted); padding:10px 18px; text-align:left; background:var(--bg2); border-bottom:1px solid var(--border); white-space:nowrap; }
+.item-table th.c { text-align:center; }
+.item-row { border-bottom:1px solid rgba(30,58,90,.4); transition:background .1s; }
+.item-row:last-child { border-bottom:none; }
+.item-row:hover { background:rgba(30,58,90,.3); }
+.item-row.has-stock { background:rgba(0,229,255,.04); border-left:2px solid var(--cyan); }
+.item-row.has-stock:hover { background:rgba(0,229,255,.08); }
+.item-row td { padding:12px 18px; vertical-align:middle; }
+.item-name { font-size:21px; color:var(--white); font-weight:500; }
+.item-info { font-size:14px; color:var(--muted); font-family:'Share Tech Mono',monospace; }
+
+/* QTY CONTROL */
+.qty-wrap { display:inline-flex; align-items:center; border:1px solid var(--border); border-radius:3px; overflow:hidden; }
+.qty-wrap.active { border-color:var(--cyan2); box-shadow:var(--neon-cyan); }
+.qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
+.qty-btn:hover { background:var(--bg3); color:var(--cyan); }
+.qty-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+.qty-wrap.active .qty-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+
+/* SIZE BADGES (composants) */
+.comp-cell { display:flex; gap:10px; align-items:flex-end; }
+.comp-size-group { display:flex; flex-direction:column; align-items:center; gap:3px; }
+.comp-size-lbl { font-family:'Orbitron',monospace; font-size:11px; font-weight:700; letter-spacing:1px; color:var(--gold); text-shadow:var(--neon-gold); }
+.comp-qty-wrap { display:inline-flex; align-items:center; border:1px solid var(--border); border-radius:3px; overflow:hidden; }
+.comp-qty-wrap.active { border-color:var(--cyan2); box-shadow:var(--neon-cyan); }
+.comp-qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
+.comp-qty-btn:hover { background:var(--bg3); color:var(--cyan); text-shadow:var(--neon-cyan); }
+.comp-size-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+.comp-size-input:focus { background:var(--bg3); }
+.comp-size-input::-webkit-outer-spin-button,
+.comp-size-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.comp-size-input[type=number] { -moz-appearance:textfield; }
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.qty-input[type=number] { -moz-appearance:textfield; }
+.comp-qty-wrap.active .comp-size-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+
+.notes-input { width:100%; background:transparent; border:none; border-bottom:1px solid transparent; color:var(--muted); font-family:'Exo 2',sans-serif; font-size:16px; padding:2px 4px; outline:none; transition:all .2s; }
+.notes-input:focus { border-bottom-color:var(--border2); color:var(--text); }
+.notes-input::placeholder { color:#1e3a5a; }
+
+/* RESUME VIEW */
+.resume-scroll-top { overflow-x:auto; overflow-y:hidden; height:12px; margin-bottom:2px; }
+.resume-scroll-top-inner { height:1px; }
+.resume-wrap { overflow:auto; max-height:calc(100vh - 148px); }
+.resume-table { width:100%; border-collapse:collapse; font-size:11px; }
+.resume-table th { font-family:'Share Tech Mono',monospace; font-size:12px; color:var(--muted); padding:6px 8px; background:var(--bg1); border:1px solid var(--border); text-align:center; white-space:nowrap; position:sticky; top:0; z-index:2; }
+.resume-table th.sticky-col { text-align:left; min-width:180px; position:sticky; left:0; z-index:3; background:var(--bg1); }
+.resume-table td { border:1px solid var(--border); padding:6px 10px; text-align:center; font-family:'Share Tech Mono',monospace; background:var(--bg); color:var(--muted); }
+.resume-table td.sticky-col { text-align:left; background:var(--bg1); color:var(--text); position:sticky; left:0; z-index:1; font-family:'Exo 2',sans-serif; font-size:15px; white-space:nowrap; }
+.resume-table td.has-stock { color:var(--cyan); font-weight:700; background:rgba(0,229,255,.07); text-shadow:var(--neon-cyan); cursor:pointer; }
+.resume-table tr.cat-hdr td { background:var(--bg2); color:var(--muted); font-family:'Orbitron',monospace; font-size:9px; letter-spacing:2px; text-align:left; padding:8px 10px; }
+.resume-table .loc-th { cursor:pointer; }
+.resume-table .loc-th:hover { color:var(--cyan); }
+
+/* TOAST */
+.toast { position:fixed; bottom:20px; right:20px; background:var(--bg2); border:1px solid var(--green2); color:var(--green); font-family:'Share Tech Mono',monospace; font-size:12px; padding:9px 16px; border-radius:4px; z-index:9998; opacity:0; transform:translateY(10px); transition:all .3s; pointer-events:none; }
+.toast.show { opacity:1; transform:translateY(0); }
+
+/* MODAL */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:500; display:none; align-items:center; justify-content:center; }
+.modal-overlay.show { display:flex; }
+.modal { background:var(--bg1); border:1px solid var(--border2); border-radius:6px; width:460px; max-height:80vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+.modal-header { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid var(--border); }
+.modal-title { font-family:'Orbitron',monospace; font-size:12px; font-weight:700; color:var(--gold); }
+.modal-close { background:none; border:none; color:var(--muted); font-size:18px; cursor:pointer; }
+.modal-close:hover { color:var(--text); }
+.modal-body { padding:18px; }
+
+/* STATS BAR */
+.stats-bar { display:flex; gap:16px; padding:8px 16px; background:var(--bg1); border-bottom:1px solid var(--border); }
+.stat { text-align:center; }
+.stat-v { font-family:'Orbitron',monospace; font-size:20px; font-weight:700; color:var(--cyan); text-shadow:var(--neon-cyan); }
+.stat-l { font-family:'Share Tech Mono',monospace; font-size:12px; color:var(--muted); }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE MOBILE
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Header compact */
+  header { padding:0 10px; gap:8px; height:50px; flex-wrap:nowrap; }
+  .logo { font-size:12px; letter-spacing:1px; }
+  .sys-switch { display:none; }
+  .header-search { max-width:140px; }
+  .header-search input { font-size:11px; padding:5px 8px 5px 26px; }
+  .btn { padding:5px 8px; font-size:8px; letter-spacing:0; }
+  .header-right { gap:4px; }
+
+  /* Layout — sidebar cachée par défaut, toggle */
+  .app { flex-direction:column; height:calc(100vh - 50px); position:relative; }
+  .sidebar {
+    position:fixed;
+    left:-220px;
+    top:50px;
+    height:calc(100vh - 50px);
+    width:220px;
+    z-index:300;
+    transition:left .25s ease;
+    box-shadow:4px 0 20px rgba(0,0,0,.8);
+  }
+  .sidebar.open { left:0; }
+  .sidebar-overlay {
+    display:none;
+    position:fixed;
+    inset:0;
+    top:50px;
+    background:rgba(0,0,0,.6);
+    z-index:299;
+  }
+  .sidebar-overlay.show { display:block; }
+  .main { width:100%; height:100%; }
+
+  /* Menu burger */
+  .burger {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    cursor:pointer;
+    padding:6px;
+    border:1px solid var(--border);
+    border-radius:3px;
+    background:var(--bg2);
+  }
+  .burger span {
+    width:18px; height:2px;
+    background:var(--gold);
+    border-radius:1px;
+    box-shadow:0 0 4px rgba(255,224,64,.5);
+    transition:all .2s;
+  }
+
+  /* System switcher mobile — dans sidebar */
+  .sys-switch-mobile {
+    display:flex;
+    gap:0;
+    border:1px solid var(--border2);
+    border-radius:4px;
+    overflow:hidden;
+    margin:10px 12px;
+  }
+  .sys-btn-m {
+    flex:1;
+    font-family:'Orbitron',monospace;
+    font-size:9px;
+    font-weight:700;
+    padding:6px 4px;
+    cursor:pointer;
+    background:transparent;
+    border:none;
+    color:var(--muted);
+    text-align:center;
+    transition:all .2s;
+  }
+  .sys-btn-m.active { background:var(--bg3); color:var(--gold); text-shadow:var(--neon-gold); }
+
+  /* Top bar */
+  .top-bar { padding:6px 10px; gap:6px; }
+  .top-bar-title { font-size:12px; }
+  .filter-chip { font-size:11px; padding:4px 8px; }
+
+  /* Stats bar */
+  .stats-bar { padding:6px 10px; gap:10px; }
+  .stat-v { font-size:16px; }
+  .stat-l { font-size:10px; }
+
+  /* Content */
+  .content { padding:8px; }
+
+  /* Cat header */
+  .cat-header { padding:10px 12px; }
+  .cat-label { font-size:12px; }
+  .cat-count { font-size:11px; }
+  .cat-total { font-size:11px; }
+
+  /* Item table */
+  .item-table th { font-size:11px; padding:7px 10px; }
+  .item-row td { padding:8px 10px; }
+  .item-name { font-size:16px; }
+  .item-info { font-size:11px; }
+
+  /* Qty controls */
+  .qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
+  .qty-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+
+  /* Comp sizes — stack vertically on mobile */
+  .comp-cell { gap:8px; flex-wrap:wrap; }
+  .comp-size-group { flex-direction:row; align-items:center; gap:6px; }
+  .comp-size-lbl { width:28px; text-align:right; }
+  .comp-qty-btn { background:var(--bg2); border:none; color:var(--muted); font-size:var(--ctrl-btn-fs); font-weight:700; width:var(--ctrl-btn-w); height:var(--ctrl-btn-h); cursor:pointer; transition:all .15s; line-height:1; flex-shrink:0; }
+  .comp-size-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; border-left:1px solid var(--border); border-right:1px solid var(--border); color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); }
+
+  /* Notes input */
+  .notes-input { font-size:14px; }
+
+  /* Résumé — badges lieux en colonne */
+  .item-row td:last-child > div { flex-direction:column; align-items:flex-start; }
+}
+
+@media (max-width:480px) {
+  .header-search { display:none; }
+  .item-name { font-size:15px; }
+}
+
+/* ── UNIFIED CONTROL SIZES ── */
+:root {
+  --ctrl-btn-w: 28px;
+  --ctrl-btn-h: 34px;
+  --ctrl-btn-fs: 18px;
+  --ctrl-input-w: 60px;
+  --ctrl-input-h: 34px;
+  --ctrl-input-fs: 17px;
+}
+
+/* ── COMP 3D TABLE ── */
+.comp3d-wrap { padding:0 0 8px 0; }
+.comp3d-item-title { padding:10px 16px 6px; font-size:17px; font-weight:600; color:var(--white); }
+.comp3d-table { width:100%; border-collapse:collapse; }
+.comp3d-table td, .comp3d-table th {
+  padding:6px 8px; border:1px solid var(--border);
+  font-family:'Share Tech Mono',monospace; font-size:13px; text-align:center;
+  vertical-align:middle;
+}
+.comp3d-table th {
+  background:var(--bg2); font-family:'Orbitron',monospace;
+  font-size:10px; font-weight:700; letter-spacing:1px;
+}
+.comp3d-table .spe-cell {
+  text-align:left; font-family:'Exo 2',sans-serif;
+  font-size:13px; font-weight:600; white-space:nowrap;
+  background:var(--bg1); width:100px;
+}
+.comp3d-table .grade-cell {
+  font-family:'Orbitron',monospace; font-size:10px;
+  font-weight:700; background:var(--bg1); width:32px;
+}
+.comp3d-input { width:var(--ctrl-input-w); background:var(--bg2); border:none; color:var(--gold); font-family:'Share Tech Mono',monospace; font-size:var(--ctrl-input-fs); font-weight:700; text-align:center; padding:4px 2px; outline:none; height:var(--ctrl-input-h); border-radius:0; }
+.comp3d-input:focus { background:var(--bg3); border:1px solid var(--cyan2); }
+.comp3d-input.active { color:var(--cyan); text-shadow:var(--neon-cyan); background:rgba(0,229,255,.08); }
+.comp3d-input::-webkit-outer-spin-button,
+.comp3d-input::-webkit-inner-spin-button { -webkit-appearance:none; }
+.comp3d-input[type=number] { -moz-appearance:textfield; }
+.comp3d-na { color:var(--border2); font-size:12px; }
+.comp3d-spe-sep td { border-top:2px solid var(--border2) !important; }
+
+/* ── GIST SYNC ── */
+.sync-status { font-family:'Share Tech Mono',monospace; font-size:11px; padding:4px 10px; border-radius:3px; }
+.sync-ok  { color:var(--green); border:1px solid var(--green2); background:rgba(0,255,136,.08); text-shadow:var(--neon-green); }
+.sync-err { color:var(--red);   border:1px solid var(--red);    background:rgba(255,48,64,.08); }
+.sync-ing { color:var(--gold);  border:1px solid var(--gold2);  background:rgba(255,224,64,.08); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="burger" id="burger" onclick="toggleSidebar()">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="logo">SC<span>INV</span></div>
+  <!-- System switcher -->
+  <div class="sys-switch" id="sysSwitcher">
+    <button class="sys-btn active" onclick="setSystem('stanton')">STANTON</button>
+    <button class="sys-btn" onclick="setSystem('pyro')">PYRO</button>
+    <button class="sys-btn" onclick="setSystem('nyx')">NYX</button>
+  </div>
+  <div class="header-search">
+    <input type="text" id="globalSearch" placeholder="Rechercher..." autocomplete="off">
+  </div>
+  <div class="header-right">
+    <button class="btn btn-cyan" onclick="showModal('import')">⬆ IMPORT</button>
+    <button class="btn btn-gold" onclick="exportData()">⬇ EXPORT</button>
+    <button class="btn btn-green" onclick="saveAll()">💾 SAVE</button>
+    <button class="btn" style="border-color:var(--purple);color:var(--purple)" onclick="showSyncModal()">☁ SYNC</button>
+    <span id="syncStatus" class="sync-status" style="display:none"></span>
+  </div>
+</header>
+
+<div class="app">
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+<aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="top-bar" id="topBar">
+      <span class="top-bar-title" id="topTitle">—</span>
+      <button class="filter-chip f-stock" id="chipStock" onclick="toggleOnlyStock()">👁 Masquer les vides</button>
+    </div>
+    <div class="stats-bar" id="statsBar"></div>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modalImport">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">⬆ IMPORTER</span>
+      <button class="modal-close" onclick="closeModal('import')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--muted);font-size:12px;margin-bottom:10px;">Colle ton JSON exporté :</p>
+      <textarea id="importText" style="width:100%;height:180px;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-family:'Share Tech Mono',monospace;font-size:11px;padding:10px;border-radius:4px;outline:none;resize:vertical;" placeholder='{"stocks":{...}}'></textarea>
+      <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end;">
+        <button class="btn btn-cyan" onclick="importData()">IMPORTER</button>
+        <button class="btn" style="border-color:var(--border);color:var(--muted);" onclick="closeModal('import')">ANNULER</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sync Modal -->
+<div class="modal-overlay" id="modalSync">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">☁ SYNC GITHUB GIST</span>
+      <button class="modal-close" onclick="closeModal('sync')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--muted);font-size:13px;margin-bottom:14px;">
+        Synchronise tes stocks sur tous tes appareils via GitHub Gist.<br>
+        Ton token est stocké <b style="color:var(--text)">uniquement dans ce navigateur</b>, jamais dans le fichier.
+      </p>
+      <div style="margin-bottom:12px">
+        <label style="font-family:'Orbitron',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;display:block;margin-bottom:6px">TOKEN GITHUB (ghp_...)</label>
+        <input type="password" id="gistToken"
+          style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Share Tech Mono',monospace;font-size:13px;padding:8px 12px;outline:none"
+          placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
+          onfocus="this.style.borderColor='var(--cyan2)'"
+          onblur="this.style.borderColor='var(--border)'">
+        <p style="font-size:11px;color:var(--muted);margin-top:4px">GitHub → Settings → Developer settings → Personal access tokens (classic) → scope: gist</p>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:3px;padding:8px 12px;margin-bottom:14px">
+        <span style="font-family:'Orbitron',monospace;font-size:10px;color:var(--muted)">GIST ID : </span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--gold)">99a1915d5868e776ed84b35dfe52a26a</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-green" onclick="gistPush()">⬆ ENVOYER vers le cloud</button>
+        <button class="btn btn-cyan"  onclick="gistPull()">⬇ CHARGER depuis le cloud</button>
+        <button class="btn" style="border-color:var(--border);color:var(--muted)" onclick="closeModal('sync')">FERMER</button>
+      </div>
+      <div id="syncLog" style="margin-top:12px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--muted);min-height:20px"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// ═══════════════════════════════════════════
+// DONNÉES
+// ═══════════════════════════════════════════
+
+const SYSTEMS = {
+  stanton: {
+    label: "Stanton",
+    lieux: [
+      // Grandes villes (⛽ = raffinerie sur place)
+      { id:"lorville",   name:"Lorville",        emoji:"🏙️", group:"Villes",    refinery:false },
+      { id:"area18",     name:"Area 18",          emoji:"🏙️", group:"Villes",    refinery:false },
+      { id:"newbabbage", name:"New Babbage",      emoji:"🏙️", group:"Villes",    refinery:false },
+      { id:"orison",     name:"Orison",           emoji:"🏙️", group:"Villes",    refinery:false },
+      { id:"grimhex",    name:"Grim HEX",         emoji:"💀", group:"Villes",    refinery:false },
+      // Stations orbitales
+      { id:"tressler",   name:"Port Tressler",    emoji:"🛰️", group:"Stations", refinery:false },
+      { id:"baijini",    name:"Baijini Point",    emoji:"🛰️", group:"Stations", refinery:false },
+      { id:"everus",     name:"Everus Harbor",    emoji:"🛰️", group:"Stations", refinery:false },
+      // Rest stops — ordre alphabétique
+      { id:"arcl1",      name:"ARC-L1",           emoji:"📡", group:"Stations", refinery:true  },
+      { id:"arcl2",      name:"ARC-L2",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"arcl3",      name:"ARC-L3",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"arcl4",      name:"ARC-L4",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"arcl5",      name:"ARC-L5",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"crul1",      name:"CRU-L1",           emoji:"📡", group:"Stations", refinery:true  },
+      { id:"crul4",      name:"CRU-L4",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"crul5",      name:"CRU-L5",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"hurl1",      name:"HUR-L1",           emoji:"📡", group:"Stations", refinery:true  },
+      { id:"hurl2",      name:"HUR-L2",           emoji:"📡", group:"Stations", refinery:true  },
+      { id:"hurl3",      name:"HUR-L3",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"hurl4",      name:"HUR-L4",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"hurl5",      name:"HUR-L5",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"micl1",      name:"MIC-L1",           emoji:"📡", group:"Stations", refinery:true  },
+      { id:"micl2",      name:"MIC-L2",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"micl3",      name:"MIC-L3",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"micl4",      name:"MIC-L4",           emoji:"📡", group:"Stations", refinery:false },
+      { id:"micl5",      name:"MIC-L5",           emoji:"📡", group:"Stations", refinery:false },
+    ]
+  },
+  pyro: {
+    label: "Pyro",
+    lieux: [
+      { id:"p_ruin",       name:"Ruin Station",     emoji:"🏙️", group:"Stations", refinery:true  },
+      { id:"p_bloom",      name:"Bloom",            emoji:"🏙️", group:"Stations", refinery:false },
+      { id:"p_checkmate",  name:"Checkmate",        emoji:"🏙️", group:"Stations", refinery:false },
+      { id:"p_jumptown",   name:"Jumptown",         emoji:"💀", group:"Stations", refinery:false },
+      { id:"p_pyrol1",     name:"Pyro L1",          emoji:"📡", group:"Stations", refinery:false },
+      { id:"p_pyrol2",     name:"Pyro L2",          emoji:"📡", group:"Stations", refinery:false },
+      { id:"p_gatestanton",name:"Gateway Stanton",  emoji:"📡", group:"Stations", refinery:true  },
+      { id:"p_gatenyxp",   name:"Gateway Nyx",      emoji:"📡", group:"Stations", refinery:true  },
+    ]
+  },
+  nyx: {
+    label: "Nyx",
+    lieux: [
+      { id:"n_levski",   name:"Levski",          emoji:"🏙️", group:"Stations", refinery:false },
+      { id:"n_delamar",  name:"Delamar",         emoji:"🏙️", group:"Stations", refinery:false },
+      { id:"n_gstanton", name:"Gateway Stanton", emoji:"📡", group:"Stations", refinery:true  },
+      { id:"n_gpyro",    name:"Gateway Pyro",    emoji:"📡", group:"Stations", refinery:true  },
+    ]
+  }
+};
+
+const CATEGORIES = [
+  {
+    id:"ore", label:"Minerais (Ship Mining)", color:"var(--cat-ore)", type:"simple",
+    items:[
+      {name:"Quantanium",    info:"Volatile — vendre vite"},
+      {name:"Laranite"},     {name:"Bexalite"},   {name:"Agricium"},
+      {name:"Taranite"},     {name:"Hephaestanite"},{name:"Titanium"},
+      {name:"Copper"},       {name:"Gold"},        {name:"Iron"},
+      {name:"Corundum"},     {name:"Diamond"},     {name:"Aluminum"},
+      {name:"Cobalt"},       {name:"Beryl"},       {name:"Borase"},
+      {name:"Astatine"},     {name:"Atlasium"},    {name:"Aslarite"},
+      {name:"Dymantium"},    {name:"Lindinium"},   {name:"Carbon"},
+    ]
+  },
+  {
+    id:"gems", label:"Gemmes & Surface (ROC/FPS)", color:"var(--cat-gems)", type:"simple",
+    items:[
+      {name:"Hadanite",      info:"275 aUEC/u"},
+      {name:"Aphorite",      info:"152 aUEC/u"},
+      {name:"Dolivine",      info:"130 aUEC/u"},
+      {name:"Glacosite",     info:"ROC — glaciers"},
+      {name:"Janalite",      info:"Très rare — sand caves"},
+      {name:"Beradom",       info:"Gemme rare"},
+      {name:"Marok gem",     info:"Gemme rare"},
+      {name:"Feynmaline",    info:"Gemme très rare"},
+      {name:"Atlasium",      info:"Surface mining"},
+    ]
+  },
+  {
+    id:"gas", label:"Gaz industriels", color:"var(--cat-gas)", type:"simple",
+    items:[
+      {name:"Nitrogen (N2)"},{name:"Hydrogen (H2)"},{name:"E'tam"},
+      {name:"Fluorine"},     {name:"Chlorine"},    {name:"Ammonia"},
+      {name:"Argon"},        {name:"Helium"},       {name:"Iodine"},
+      {name:"Astatine gas"}, {name:"Krypton"},
+    ]
+  },
+  {
+    id:"mat", label:"Matières raffinées & Construction", color:"var(--cat-mat)", type:"simple",
+    items:[
+      {name:"RMC",               info:"Recycled Material Composite"},
+      {name:"Construction Mat."},{name:"Compboard"},
+      {name:"Carbon Silk"},      {name:"Foam"},
+      {name:"Bioplastic"},       {name:"Dynaflex"},
+      {name:"Acryliplex Composite"},{name:"Diamond Laminate"},
+      {name:"Agricultural Supplies"},{name:"Distilled Spirits"},
+      {name:"Fresh Food"},
+    ]
+  },
+  {
+    id:"drug", label:"Drogues & Stims", color:"var(--cat-drug)", type:"simple",
+    items:[
+      {name:"Maze"},         {name:"WiDoW"},       {name:"Neon"},
+      {name:"Slam"},         {name:"Uncut Slam"},  {name:"DCSR2"},
+      {name:"Weevil Egg"},   {name:"Altruciatoxin"},{name:"Amioshi Plague"},
+      {name:"Golden Medmon"},{name:"Degnous Root"},{name:"Heart of the Woods"},
+      {name:"Kopion Horn"},  {name:"Cave Kopion Horn"},
+    ]
+  },
+  {
+    id:"med", label:"Médical", color:"var(--cat-drug)", type:"simple",
+    items:[
+      {name:"Medical Supplies", info:"Seule entrée médicale"},
+    ]
+  },
+  {
+    id:"weapons", label:"Armes Vaisseau", color:"#e84060", type:"weapons_simple",
+    sizes:["S1","S2","S3","S4","S5","S6","S7","S8","S9","S10"],
+    items:[],
+  },
+  {
+    id:"comp", label:"Composants Vaisseaux", color:"var(--cat-comp)", type:"comp3d",
+    specialites:[
+      { id:"mil",  label:"Militaire",    code:"M", color:"#e84040", sizes:["S1","S2","S3","S4"] },
+      { id:"civ",  label:"Civil",        code:"C", color:"#30b8e8", sizes:["S1","S2","S3","S4"] },
+      { id:"fur",  label:"Furtif",       code:"S", color:"#9860d0", sizes:["S1","S2","S3"]       },
+      { id:"ind",  label:"Industriel",   code:"I", color:"#f08030", sizes:["S1","S2","S3","S4"] },
+      { id:"cpt",  label:"Compétition",  code:"P", color:"#40d880", sizes:["S1","S2"]            },
+    ],
+    grades:["A","B","C","D"],
+    items:[
+      {name:"Bouclier"},
+      {name:"Refroidisseur"},
+      {name:"Générateur énergie"},
+      {name:"Drive quantique"},
+      {name:"Module de saut"},
+      {name:"Radar/Scanner"},
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+let currentSystem = 'stanton';
+let currentLieu   = null;
+let currentView   = 'resume';  // 'resume' | 'lieu'
+let onlyStock     = false;
+let searchQuery   = '';
+let openCats      = {};  // catId → bool
+let stocks        = {};  // [system][lieuId][itemKey] = qty | {S1:n,S2:n,S3:n}
+let notes         = {};  // [system][lieuId][itemKey] = string
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+function toggleResumeDetail(id) {
+  const row = document.getElementById(id);
+  const btn = document.getElementById('btn_' + id);
+  if (!row) return;
+  const open = row.style.display === 'none';
+  row.style.display = open ? 'table-row' : 'none';
+  if (btn) btn.textContent = open ? '▲ DÉTAIL' : '▾ DÉTAIL';
+}
+
+// ═══════════════════════════════════════════
+// GITHUB GIST SYNC
+// ═══════════════════════════════════════════
+const GIST_ID = '99a1915d5868e776ed84b35dfe52a26a';
+const GIST_FILE = 'sc_inventory.json';
+
+function getToken() {
+  return localStorage.getItem('sc_gist_token') || '';
+}
+function saveToken(t) {
+  if (t) localStorage.setItem('sc_gist_token', t);
+}
+
+function showSyncModal() {
+  document.getElementById('modalSync').classList.add('show');
+  const t = getToken();
+  if (t) document.getElementById('gistToken').value = t;
+}
+
+function setSyncStatus(msg, type='ok') {
+  const el = document.getElementById('syncStatus');
+  el.textContent = msg;
+  el.className = 'sync-status sync-' + type;
+  el.style.display = 'inline';
+  if (type === 'ok') setTimeout(() => el.style.display='none', 4000);
+}
+
+function syncLog(msg) {
+  document.getElementById('syncLog').textContent = msg;
+}
+
+async function gistPush() {
+  const token = document.getElementById('gistToken').value.trim() || getToken();
+  if (!token) { syncLog('⚠ Entre ton token GitHub'); return; }
+  saveToken(token);
+  syncLog('⏳ Envoi en cours...');
+  setSyncStatus('⏳ Sync...', 'ing');
+  try {
+    const data = JSON.stringify({stocks, notes, _updated: new Date().toISOString()});
+    const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      method: 'PATCH',
+      headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ files: { [GIST_FILE]: { content: data } } })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    syncLog('✓ Données envoyées — ' + new Date().toLocaleTimeString());
+    setSyncStatus('☁ Sync OK', 'ok');
+    showToast('☁ Synchronisé avec le cloud');
+  } catch(e) {
+    syncLog('✗ Erreur : ' + e.message);
+    setSyncStatus('✗ Erreur sync', 'err');
+  }
+}
+
+async function gistPull() {
+  const token = document.getElementById('gistToken').value.trim() || getToken();
+  if (!token) { syncLog('⚠ Entre ton token GitHub'); return; }
+  saveToken(token);
+  syncLog('⏳ Chargement...');
+  setSyncStatus('⏳ Sync...', 'ing');
+  try {
+    const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      headers: { 'Authorization': `token ${token}` }
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const gist = await res.json();
+    const raw = gist.files[GIST_FILE]?.content;
+    if (!raw || raw === '{}') { syncLog('⚠ Gist vide — rien à charger'); return; }
+    const parsed = JSON.parse(raw);
+    if (parsed.stocks) stocks = parsed.stocks;
+    if (parsed.notes)  notes  = parsed.notes;
+    saveAll();
+    buildSidebar();
+    renderCurrent();
+    const updated = parsed._updated ? new Date(parsed._updated).toLocaleString() : '?';
+    syncLog('✓ Données chargées — sauvegarde du ' + updated);
+    setSyncStatus('☁ Chargé', 'ok');
+    showToast('☁ Données chargées depuis le cloud');
+  } catch(e) {
+    syncLog('✗ Erreur : ' + e.message);
+    setSyncStatus('✗ Erreur sync', 'err');
+  }
+}
+
+// Auto-sync au démarrage si token présent
+async function autoSync() {
+  const token = getToken();
+  if (!token) return;
+  try {
+    const res = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
+      headers: { 'Authorization': `token ${token}` }
+    });
+    if (!res.ok) return;
+    const gist = await res.json();
+    const raw = gist.files[GIST_FILE]?.content;
+    if (!raw || raw === '{}') return;
+    const parsed = JSON.parse(raw);
+    // Comparer les dates — prendre le plus récent
+    const remoteDate = parsed._updated ? new Date(parsed._updated) : new Date(0);
+    const localDate  = new Date(localStorage.getItem('sc_last_save') || 0);
+    if (remoteDate > localDate) {
+      if (parsed.stocks) stocks = parsed.stocks;
+      if (parsed.notes)  notes  = parsed.notes;
+      saveAll();
+      buildSidebar();
+      renderCurrent();
+      showToast('☁ Stock mis à jour depuis le cloud');
+    }
+  } catch(e) {}
+}
+
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const ov = document.getElementById('sidebarOverlay');
+  const open = sb.classList.toggle('open');
+  ov.classList.toggle('show', open);
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('show');
+}
+
+function init() {
+  loadAll();
+  // Ouvrir toutes les cats par défaut
+  // Cats fermés par défaut — s'ouvrent au clic
+  buildSidebar();
+  renderResume();
+  document.getElementById('globalSearch').addEventListener('input', e => {
+    searchQuery = e.target.value.toLowerCase();
+    renderCurrent();
+  });
+  setInterval(saveAll, 30000);
+}
+
+// ═══════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════
+function saveAll() {
+  localStorage.setItem('sc_stocks_v2', JSON.stringify(stocks));
+  localStorage.setItem('sc_notes_v2',  JSON.stringify(notes));
+  localStorage.setItem('sc_last_save', new Date().toISOString());
+  showToast('💾 Sauvegardé');
+}
+function loadAll() {
+  try {
+    const s = localStorage.getItem('sc_stocks_v2');
+    const n = localStorage.getItem('sc_notes_v2');
+    if (s) stocks = JSON.parse(s);
+    if (n) notes  = JSON.parse(n);
+  } catch(e) {}
+}
+function exportData() {
+  const blob = new Blob([JSON.stringify({stocks,notes},null,2)],{type:'application/json'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href=url; a.download='sc_inv_'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('⬇ Exporté');
+}
+function importData() {
+  try {
+    const raw = JSON.parse(document.getElementById('importText').value);
+    if (raw.stocks) stocks = raw.stocks;
+    if (raw.notes)  notes  = raw.notes;
+    saveAll(); closeModal('import'); buildSidebar(); renderCurrent();
+    showToast('✓ Import OK');
+  } catch(e) { showToast('⚠ JSON invalide', true); }
+}
+
+// ═══════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════
+function sysLieux() { return SYSTEMS[currentSystem].lieux; }
+function ensurePath(lieuId) {
+  if (!stocks[currentSystem]) stocks[currentSystem] = {};
+  if (!stocks[currentSystem][lieuId]) stocks[currentSystem][lieuId] = {};
+  if (!notes[currentSystem]) notes[currentSystem] = {};
+  if (!notes[currentSystem][lieuId]) notes[currentSystem][lieuId] = {};
+}
+function getQty(lieuId, key) {
+  return stocks[currentSystem]?.[lieuId]?.[key] || '';
+}
+function setQty(lieuId, key, val) {
+  ensurePath(lieuId);
+  if (!val || val==='0') delete stocks[currentSystem][lieuId][key];
+  else stocks[currentSystem][lieuId][key] = val;
+  updateBadge(lieuId);
+  scheduleAutosave();
+}
+function getCompSizes(lieuId, key) {
+  return stocks[currentSystem]?.[lieuId]?.[key] || {};
+}
+function setCompSize(lieuId, key, size, val) {
+  ensurePath(lieuId);
+  if (!stocks[currentSystem][lieuId][key]) stocks[currentSystem][lieuId][key] = {};
+  if (!val || val==='0') delete stocks[currentSystem][lieuId][key][size];
+  else stocks[currentSystem][lieuId][key][size] = val;
+  if (!Object.keys(stocks[currentSystem][lieuId][key]).length) delete stocks[currentSystem][lieuId][key];
+  updateBadge(lieuId);
+  scheduleAutosave();
+}
+function getNote(lieuId, key) { return notes[currentSystem]?.[lieuId]?.[key] || ''; }
+function setNote(lieuId, key, val) {
+  ensurePath(lieuId);
+  if (!val) delete notes[currentSystem][lieuId][key];
+  else notes[currentSystem][lieuId][key] = val;
+  scheduleAutosave();
+}
+function lieuTotal(lieuId) {
+  const d = stocks[currentSystem]?.[lieuId] || {};
+  let t = 0;
+  for (const k of Object.keys(d)) {
+    const v = d[k];
+    if (typeof v === 'object') t += Object.values(v).reduce((a,b)=>a+(parseInt(b)||0),0);
+    else t += parseInt(v)||0;
+  }
+  return t;
+}
+function hasAnyStock(cat, lieuId) {
+  for (const item of cat.items) {
+    if (cat.type==='composant') {
+      const sz = getCompSizes(lieuId, item.name);
+      if (Object.values(sz).some(v=>parseInt(v)>0)) return true;
+    } else {
+      if (parseInt(getQty(lieuId,item.name))>0) return true;
+    }
+  }
+  return false;
+}
+let autoTimer = null;
+function scheduleAutosave() {
+  clearTimeout(autoTimer);
+  autoTimer = setTimeout(()=>{
+    localStorage.setItem('sc_stocks_v2',JSON.stringify(stocks));
+    localStorage.setItem('sc_notes_v2',JSON.stringify(notes));
+  }, 2000);
+}
+
+// ═══════════════════════════════════════════
+// SYSTEM SWITCH
+// ═══════════════════════════════════════════
+function setSystem(sys) {
+  currentSystem = sys;
+  currentLieu   = null;
+  currentView   = 'resume';
+  document.querySelectorAll('.sys-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.sys-btn[onclick*="${sys}"]`).classList.add('active');
+  buildSidebar();
+  renderResume();
+}
+
+// ═══════════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════════
+function buildSidebar() {
+  const el = document.getElementById('sidebar');
+  const groups = [...new Set(sysLieux().map(l=>l.group))];
+  const groupColors = {Villes:'var(--gold)',Stations:'var(--cyan)'};
+  let html = `<div class="sidebar-section">
+    <div class="sidebar-item${currentView==='resume'?' active':''}" onclick="openResume()">
+      <span>📊</span><span>Résumé global</span>
+    </div></div>`;
+  for (const grp of groups) {
+    const lieux = sysLieux().filter(l=>l.group===grp);
+    html += `<div class="sidebar-section"><div class="sidebar-title" style="color:${groupColors[grp]||'var(--muted)'}">${grp}</div>`;
+    for (const lieu of lieux) {
+      const total = lieuTotal(lieu.id);
+      const active = currentLieu===lieu.id && currentView==='lieu' ? ' active' : '';
+      html += `<div class="sidebar-item${active}" onclick="openLieu('${lieu.id}')" id="nav-${lieu.id}">
+        <span>${lieu.emoji}</span>
+        <span style="font-size:12px">${lieu.name}${lieu.refinery?' <span style="color:var(--orange);font-size:11px;opacity:.9">⛽</span>':''}</span>
+        ${total>0?`<span class="badge">${total}</span>`:''}
+      </div>`;
+    }
+    html += `</div>`;
+  }
+  el.innerHTML = html;
+}
+function updateBadge(lieuId) {
+  const nav = document.getElementById('nav-'+lieuId);
+  if (!nav) return;
+  const t = lieuTotal(lieuId);
+  let b = nav.querySelector('.badge');
+  if (t>0) { if(!b){b=document.createElement('span');b.className='badge';nav.appendChild(b);} b.textContent=t; }
+  else if (b) b.remove();
+}
+
+// ═══════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════
+function openResume() {
+  currentView='resume'; currentLieu=null;
+  buildSidebar(); renderResume();
+  if (window.innerWidth <= 768) closeSidebar();
+}
+function openLieu(id) {
+  currentView='lieu'; currentLieu=id;
+  buildSidebar(); renderLieu();
+  // Close sidebar on mobile
+  if (window.innerWidth <= 768) closeSidebar();
+}
+function renderCurrent() {
+  if (currentView==='resume') renderResume();
+  else renderLieu();
+}
+function toggleOnlyStock() {
+  onlyStock=!onlyStock;
+  const btn = document.getElementById('chipStock');
+  btn.classList.toggle('active', onlyStock);
+  btn.textContent = onlyStock ? '👁 Tout afficher' : '👁 Masquer les vides';
+  renderCurrent();
+}
+
+// ═══════════════════════════════════════════
+// RENDER LIEU
+// ═══════════════════════════════════════════
+function renderLieu() {
+  const lieu = sysLieux().find(l=>l.id===currentLieu);
+  if (!lieu) return;
+  document.getElementById('topTitle').textContent = `${lieu.emoji} ${lieu.name}${lieu.refinery?' ⛽':''}  —  ${SYSTEMS[currentSystem].label}`;
+
+  // Stats
+  const total = lieuTotal(lieu.id);
+  const itemsWithStock = Object.keys(stocks[currentSystem]?.[lieu.id]||{}).length;
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat"><div class="stat-v">${itemsWithStock}</div><div class="stat-l">Items</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--gold)">${total}</div><div class="stat-l">Total unités</div></div>`;
+
+  let html = '';
+  let skipItem = false;
+  for (const cat of CATEGORIES) {
+    const matchingItems = [...cat.items].filter(i=>i.name).sort((a,b)=>a.name.localeCompare(b.name)).filter(item => {
+      if (searchQuery && !item.name.toLowerCase().includes(searchQuery)) return false;
+      if (onlyStock) {
+        if (cat.type==='comp3d') {
+          let hasAny = false;
+          for (const sp of cat.specialites)
+            for (const gr of cat.grades)
+              for (const sz of sp.sizes)
+                if (parseInt(getQty(lieu.id, `${item.name}|${sp.id}|${gr}|${sz}`))>0) hasAny=true;
+          return hasAny;
+        }
+        return parseInt(getQty(lieu.id,item.name))>0;
+      }
+      return true;
+    });
+    if (cat.type==='weapons_simple') {
+      // Direct render — no items, just S1-S10
+      const hasAnyWpn = cat.sizes.some(sz=>parseInt(getQty(lieu.id,`armes|${sz}`))>0);
+      const stockCountWpn = cat.sizes.filter(sz=>parseInt(getQty(lieu.id,`armes|${sz}`))>0).length;
+      const isOpenWpn = openCats[cat.id] === true;
+      const row1 = cat.sizes.slice(0,5);  // S1-S5
+      const row2 = cat.sizes.slice(5,10); // S6-S10
+
+      const buildWpnRow = (sizes) => {
+        let r = `<tr>`;
+        for (const sz of sizes) {
+          const key = `armes|${sz}`;
+          const v = getQty(lieu.id, key)||'';
+          const active = parseInt(v)>0;
+          r += `<td style="padding:8px 12px;width:20%;vertical-align:middle">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-family:'Orbitron',monospace;font-size:12px;font-weight:700;color:var(--gold);text-shadow:var(--neon-gold);min-width:32px;display:inline-block">${sz}</span>
+              <div class="qty-wrap${active?' active':''}">
+                <button class="qty-btn" onclick="stepQty(this,-1)">−</button>
+                <input type="number" class="qty-input" min="0" value="${v}" placeholder="0"
+                  data-lieu="${lieu.id}" data-item="${key}"
+                  onchange="onQtyChange(this)" oninput="onQtyInput(this)">
+                <button class="qty-btn" onclick="stepQty(this,1)">+</button>
+              </div>
+            </div>
+          </td>`;
+        }
+        r += `</tr>`;
+        return r;
+      };
+
+      html += `<div class="cat-block${isOpenWpn?' open':''}" id="catblock-${cat.id}">
+        <div class="cat-header" onclick="toggleCat('${cat.id}')">
+          <div class="cat-dot" style="background:${cat.color}"></div>
+          <span class="cat-label">${cat.label}</span>
+          ${hasAnyWpn?`<span class="cat-total">▸ ${stockCountWpn} taille(s) en stock</span><div class="cat-stock-dot"></div>`:''}
+          <span class="cat-chevron">▾</span>
+        </div>
+        <div class="cat-body" style="padding:12px 16px">
+          <table style="border-collapse:collapse;width:100%;table-layout:fixed">
+            <tbody>
+              ${buildWpnRow(row1)}
+              ${buildWpnRow(row2)}
+            </tbody>
+          </table>
+        </div>
+      </div>`;
+      continue;
+    }
+
+    if (matchingItems.length===0) continue;
+
+    const isOpen = openCats[cat.id] === true;
+    const stockCount = cat.items.filter(i=>{
+      if(cat.type==='composant'){return Object.values(getCompSizes(lieu.id,i.name)).some(v=>parseInt(v)>0);}
+      return parseInt(getQty(lieu.id,i.name))>0;
+    }).length;
+
+    html += `<div class="cat-block${isOpen?' open':''}" id="catblock-${cat.id}">
+      <div class="cat-header" onclick="toggleCat('${cat.id}')">
+        <div class="cat-dot" style="background:${cat.color}"></div>
+        <span class="cat-label">${cat.label}</span>
+        <span class="cat-count">(${matchingItems.length})</span>
+        ${stockCount>0?`<span class="cat-total">▸ ${stockCount} en stock</span><div class="cat-stock-dot"></div>`:''}
+        <span class="cat-chevron">▾</span>
+      </div>
+      <div class="cat-body">
+        <table class="item-table">
+          <thead><tr>
+            <th style="width:220px">Item</th>`;
+
+    if (cat.type==='comp3d') {
+      html += `<th colspan="6">Spécialité · Grade · Taille</th>`;
+    } else {
+      html += `<th class="c" style="width:130px">Quantité</th>`;
+    }
+    html += `</tr></thead><tbody>`;
+
+    for (const item of matchingItems) {
+      const note = getNote(lieu.id, item.name);
+      if (cat.type==='comp3d') {
+        let hasAny = false;
+        for (const sp of cat.specialites)
+          for (const gr of cat.grades)
+            for (const sz of sp.sizes)
+              if (parseInt(getQty(lieu.id, `${item.name}|${sp.id}|${gr}|${sz}`))>0) hasAny=true;
+
+        const compBlockId = `compblock-${lieu.id}-${item.name.replace(/[^a-z0-9]/gi,'_')}`;
+        const compIsOpen = openCats[compBlockId] === true;
+        html += `<tr class="item-row${hasAny?' has-stock':''}"><td colspan="3" style="padding:0;background:var(--bg)">
+          <div class="cat-header" style="padding:8px 14px;cursor:pointer;background:var(--bg1);border-bottom:1px solid var(--border)"
+               onclick="toggleCat('${compBlockId}')">
+            <div class="cat-dot" style="background:var(--cat-comp)"></div>
+            <span class="item-name" style="font-size:16px">${item.name}</span>
+            ${hasAny ? `<span class="cat-total" style="margin-left:auto">▸ en stock</span><div class="cat-stock-dot"></div>` : ''}
+            <span class="cat-chevron" style="margin-left:${hasAny?'8px':'auto'}">▾</span>
+          </div>
+          <div id="${compBlockId}" style="display:${compIsOpen?'block':'none'}">
+          <table class="comp3d-table"><thead><tr>
+            <th style="text-align:left;width:100px">Spé.</th>
+            <th style="width:30px">Gr.</th>
+            <th style="color:var(--gold);width:58px">S1</th>
+            <th style="color:var(--gold);width:58px">S2</th>
+            <th style="color:var(--gold);width:58px">S3</th>
+            <th style="color:var(--gold);width:58px">S4</th>
+</tr></thead><tbody>`;
+
+        for (const sp of cat.specialites) {
+          for (let gi=0; gi<cat.grades.length; gi++) {
+            const gr = cat.grades[gi];
+            const first = gi===0;
+            const noteKey = `${item.name}|${sp.id}`;
+            const noteVal = first && gi===0 ? '' : '';
+            html += `<tr${first?' style="border-top:2px solid var(--border2)"':''}>
+              <td style="text-align:left;padding:3px 8px;background:var(--bg1);font-family:'Exo 2',sans-serif;font-size:${first?'13':'11'}px;font-weight:${first?'700':'400'};color:${first?sp.color:'var(--muted)'};white-space:nowrap;width:100px">
+                ${first?sp.label:''}
+              </td>
+              <td style="font-family:'Orbitron',monospace;font-size:10px;font-weight:700;color:${sp.color};background:var(--bg1);padding:3px 5px;width:30px">${gr}</td>`;
+            for (const sz of ['S1','S2','S3','S4']) {
+              if (!sp.sizes.includes(sz)) {
+                html += `<td style="color:var(--border2);font-size:11px;width:58px">—</td>`;
+              } else {
+                const key = `${item.name}|${sp.id}|${gr}|${sz}`;
+                const v = getQty(lieu.id, key)||'';
+                const active = parseInt(v)>0;
+                html += `<td style="padding:2px 3px;width:58px">
+                  <div class="comp-qty-wrap${active?' active':''}" style="justify-content:center">
+                    <button class="comp-qty-btn" onclick="stepCompQty(this,-1)" >−</button>
+                    <input type="number" class="comp3d-input${active?' active':''}" min="0"
+                      value="${v}" placeholder="0" 
+                      data-lieu="${lieu.id}" data-item="${key}"
+                      onchange="onQtyChange(this)" oninput="onQtyInput(this)">
+                    <button class="comp-qty-btn" onclick="stepCompQty(this,1)" >+</button>
+                  </div>
+                </td>`;
+              }
+            }
+            // Notes cell — spans all grade rows of this specialite (rowspan=4)
+            if (first) {
+              const noteKey2 = `note_${item.name}_${sp.id}`;
+              const noteV = getNote(lieu.id, noteKey2)||'';
+
+            }
+            html += `</tr>`;
+          }
+        }
+        html += `</tbody></table>
+
+        </td></tr>`;
+      } else if (cat.type==='weapons_simple') {
+        // Rendered separately below — skip item loop
+        skipItem = true;
+      } else {
+        const qty = getQty(lieu.id, item.name);
+        const hasStock = parseInt(qty)>0;
+        html += `<tr class="item-row${hasStock?' has-stock':''}">
+          <td>
+            <div class="item-name">${item.name}</div>
+            ${item.info?`<div class="item-info">${item.info}</div>`:''}
+          </td>
+          <td style="text-align:center">
+            <div class="qty-wrap${hasStock?' active':''}">
+              <button class="qty-btn" onclick="stepQty(this,-1)">−</button>
+              <input type="number" class="qty-input" min="0" value="${qty||''}" placeholder="0"
+                data-lieu="${lieu.id}" data-item="${item.name}"
+                onchange="onQtyChange(this)" oninput="onQtyInput(this)">
+              <button class="qty-btn" onclick="stepQty(this,1)">+</button>
+            </div>
+          </td>
+        </tr>`;
+      }
+    }
+        html += `</tbody></table></div></div>`;
+  }
+
+  if (!html) html = `<div style="padding:40px;text-align:center;color:var(--muted);font-family:'Share Tech Mono',monospace;">Aucun item correspondant</div>`;
+
+  // Global lieu note at bottom
+  const lieuNote = getNote(lieu.id, '__lieu_note__') || '';
+  html += `<div style="margin-top:16px;border:1px solid var(--border);border-radius:4px;background:var(--bg1);padding:12px 16px;">
+    <div style="font-family:'Orbitron',monospace;font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);margin-bottom:8px">📝 NOTES — ${lieu.name.toUpperCase()}</div>
+    <textarea
+      style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Exo 2',sans-serif;font-size:15px;padding:10px;outline:none;resize:vertical;min-height:80px;transition:border-color .2s"
+      placeholder="Notes libres sur ce lieu..."
+      data-lieu="${lieu.id}" data-item="__lieu_note__"
+      onchange="onNoteChange(this)"
+      onfocus="this.style.borderColor='var(--cyan2)'"
+      onblur="this.style.borderColor='var(--border)'"
+    >${lieuNote}</textarea>
+  </div>`;
+
+  document.getElementById('content').innerHTML = html;
+}
+
+function toggleCat(id) {
+  openCats[id] = !openCats[id];
+  const isOpen = openCats[id];
+  // Cat block (accordion)
+  const block = document.getElementById('catblock-'+id);
+  if (block) block.classList.toggle('open', isOpen);
+  // Comp3d block (div with direct id)
+  const compBlock = document.getElementById(id);
+  if (compBlock) compBlock.style.display = isOpen ? 'block' : 'none';
+  // Chevron — find in parent header
+  const header = compBlock ? compBlock.previousElementSibling : null;
+  if (header) {
+    const chev = header.querySelector('.cat-chevron');
+    if (chev) chev.style.transform = isOpen ? 'rotate(180deg)' : '';
+  }
+}
+
+// ═══════════════════════════════════════════
+// RENDER RESUME
+// ═══════════════════════════════════════════
+function renderResume() {
+  document.getElementById('topTitle').textContent = `📊 Résumé — ${SYSTEMS[currentSystem].label}`;
+  const lieux = sysLieux();
+
+  const totalLieux = lieux.filter(l=>lieuTotal(l.id)>0).length;
+  const totalEntries = lieux.reduce((a,l)=>a+Object.keys(stocks[currentSystem]?.[l.id]||{}).length,0);
+  const grandTotalUnits = lieux.reduce((a,l)=>a+lieuTotal(l.id),0);
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat"><div class="stat-v">${totalLieux}</div><div class="stat-l">Lieux actifs</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--gold)">${totalEntries}</div><div class="stat-l">Entrées</div></div>
+    <div class="stat"><div class="stat-v" style="color:var(--green);text-shadow:var(--neon-green)">${grandTotalUnits}</div><div class="stat-l">Total unités</div></div>`;
+
+  let html = '';
+
+  for (const cat of CATEGORIES) {
+    if (cat.type==='weapons_simple') {
+      const hasAnyWpn = lieux.some(l=>cat.sizes.some(sz=>parseInt(getQty(l.id,`armes|${sz}`))>0));
+      if (!hasAnyWpn && onlyStock) continue;
+      const isOpenWpn = openCats[cat.id] === true;
+      const totalWpn = lieux.reduce((a,l)=>a+cat.sizes.reduce((b,sz)=>b+(parseInt(getQty(l.id,`armes|${sz}`))||0),0),0);
+      html += `<div class="cat-block${isOpenWpn?' open':''}" id="catblock-${cat.id}">
+        <div class="cat-header" onclick="toggleCat('${cat.id}')">
+          <div class="cat-dot" style="background:${cat.color}"></div>
+          <span class="cat-label">${cat.label}</span>
+          ${totalWpn>0?`<span class="cat-total">▸ ${totalWpn} en stock</span><div class="cat-stock-dot"></div>`:''}
+          <span class="cat-chevron">▾</span>
+        </div>
+        <div class="cat-body"><table class="item-table"><thead><tr>
+          <th style="width:80px">Taille</th>
+          <th class="c" style="width:100px">Total</th>
+          <th>Lieux avec stock</th>
+        </tr></thead><tbody>`;
+      for (const sz of cat.sizes) {
+        const key = `armes|${sz}`;
+        const lieuxWpn = lieux.map(l=>{const v=parseInt(getQty(l.id,key))||0;return v>0?{lieu:l,total:v,label:String(v)}:null;}).filter(Boolean);
+        const total = lieuxWpn.reduce((a,x)=>a+x.total,0);
+        if (onlyStock && !total) continue;
+        html += `<tr class="item-row${total>0?' has-stock':''}">
+          <td><span style="font-family:'Orbitron',monospace;font-size:14px;font-weight:700;color:var(--gold);text-shadow:var(--neon-gold)">${sz}</span></td>
+          <td style="text-align:center">${total>0?`<span style="font-family:'Share Tech Mono',monospace;font-size:20px;font-weight:700;color:var(--cyan);text-shadow:var(--neon-cyan)">${total}</span>`:'<span style="color:var(--border2)">—</span>'}</td>
+          <td><div style="display:flex;flex-wrap:wrap;gap:6px;">
+            ${lieuxWpn.map(x=>`<span onclick="openLieu('${x.lieu.id}')" style="cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--cyan);text-shadow:var(--neon-cyan);background:rgba(0,229,255,.08);border:1px solid var(--cyan2);border-radius:3px;padding:3px 10px;white-space:nowrap" onmouseover="this.style.background='rgba(0,229,255,.2)'" onmouseout="this.style.background='rgba(0,229,255,.08)'">${x.lieu.emoji} ${x.lieu.name} <b style="color:var(--gold)">${x.label}</b></span>`).join('')}
+          </div></td>
+        </tr>`;
+      }
+      html += `</tbody></table></div></div>`;
+      continue;
+    }
+    const allItems = [...cat.items].sort((a,b)=>a.name.localeCompare(b.name));
+    const showItems = allItems.filter(item => !searchQuery || item.name.toLowerCase().includes(searchQuery));
+    if (!showItems.length) continue;
+
+    // Calculer stock total + lieux pour chaque item
+    const itemsData = showItems.map(item => {
+      const lieuxWithStock = lieux.map(l => {
+        if (cat.type==='comp3d') {
+          let total = 0;
+          for (const sp of cat.specialites)
+            for (const gr of cat.grades)
+              for (const sz of sp.sizes)
+                total += parseInt(getQty(l.id, `${item.name}|${sp.id}|${gr}|${sz}`))||0;
+          return total>0 ? {lieu:l, total, label:String(total)} : null;
+        } else {
+          const qty = parseInt(getQty(l.id, item.name))||0;
+          return qty>0 ? {lieu:l, total:qty, label:String(qty)} : null;
+        }
+      }).filter(Boolean);
+      const grandTotal = lieuxWithStock.reduce((a,x)=>a+x.total,0);
+      return {item, lieuxWithStock, grandTotal};
+    });
+
+    const visibleItems = onlyStock ? itemsData.filter(d=>d.grandTotal>0) : itemsData;
+    if (!visibleItems.length) continue;
+
+    const catTotal = itemsData.reduce((a,d)=>a+d.grandTotal,0);
+    const hasStockInCat = catTotal > 0;
+    const isOpen = openCats[cat.id] === true;
+
+    html += `<div class="cat-block${isOpen?' open':''}" id="catblock-${cat.id}">
+      <div class="cat-header" onclick="toggleCat('${cat.id}')">
+        <div class="cat-dot" style="background:${cat.color}"></div>
+        <span class="cat-label">${cat.label}</span>
+        <span class="cat-count">(${visibleItems.length})</span>
+        ${hasStockInCat ? `<span class="cat-total">▸ ${catTotal} en stock</span><div class="cat-stock-dot"></div>` : ''}
+        <span class="cat-chevron">▾</span>
+      </div>
+      <div class="cat-body">
+        <table class="item-table-resume"><thead><tr>
+            <th class="col-item">Item</th>
+            <th class="col-detail"></th>
+            <th class="col-total">Total</th>
+            <th class="col-lieux">Lieux avec stock — clic pour ouvrir</th>
+          </tr></thead><tbody>`;
+
+    for (const {item, lieuxWithStock, grandTotal} of visibleItems) {
+      const hasStock = grandTotal > 0;
+      const isComp3d = cat.type === 'comp3d';
+      const detailId = `detail_${cat.id}_${item.name.replace(/[^a-z0-9]/gi,'_')}`;
+
+      html += `<tr class="item-row${hasStock?' has-stock':''}">
+        <td class="col-item">
+          <div class="item-name" style="white-space:nowrap">${item.name}</div>
+        </td>
+        <td class="col-detail">
+          ${isComp3d && hasStock ? `<span onclick="toggleResumeDetail('${detailId}')"
+            style="cursor:pointer;font-family:'Orbitron',monospace;font-size:10px;font-weight:700;
+              color:var(--cyan);text-shadow:var(--neon-cyan);
+              border:1px solid var(--cyan2);border-radius:3px;padding:3px 10px;
+              background:rgba(0,229,255,.08);transition:all .2s;white-space:nowrap;"
+            onmouseover="this.style.background='rgba(0,229,255,.2)';this.style.boxShadow='var(--neon-cyan)'"
+            onmouseout="this.style.background='rgba(0,229,255,.08)';this.style.boxShadow='none'"
+            id="btn_${detailId}">▾ DÉTAIL</span>` : ''}
+        </td>
+        <td class="col-total">
+          ${hasStock
+            ? `<span style="font-family:'Share Tech Mono',monospace;font-size:20px;font-weight:700;color:var(--cyan);text-shadow:var(--neon-cyan)">${grandTotal}</span>`
+            : `<span style="color:var(--border2)">—</span>`}
+        </td>
+        <td>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:2px 0">`;
+
+      for (const {lieu, label} of lieuxWithStock) {
+        html += `<span onclick="openLieu('${lieu.id}')"
+          style="cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:13px;
+            color:var(--cyan);text-shadow:var(--neon-cyan);
+            background:rgba(0,229,255,.08);border:1px solid var(--cyan2);
+            border-radius:3px;padding:3px 10px;white-space:nowrap;
+            display:inline-flex;align-items:center;gap:8px;transition:all .15s;"
+          onmouseover="this.style.background='rgba(0,229,255,.2)';this.style.boxShadow='var(--neon-cyan)'"
+          onmouseout="this.style.background='rgba(0,229,255,.08)';this.style.boxShadow='none'">
+          ${lieu.emoji} ${lieu.name}&nbsp;<b style="color:var(--gold);text-shadow:var(--neon-gold)">${label}</b>
+        </span>`;
+      }
+
+      if (!lieuxWithStock.length) {
+        html += `<span style="color:var(--border2);font-family:'Share Tech Mono',monospace;font-size:13px">aucun stock</span>`;
+      }
+
+      html += `</div></td></tr>`;
+
+      // Detail row for comp3d — breakdown by spe/grade/size
+      if (isComp3d && hasStock) {
+        html += `<tr id="${detailId}" style="display:none"><td colspan="3" style="padding:0 16px 10px 32px;background:var(--bg2)">
+          <table style="border-collapse:collapse;margin-top:6px;font-family:'Share Tech Mono',monospace;font-size:12px;">
+            <thead><tr>
+              <th style="padding:4px 12px;text-align:left;color:var(--muted);font-size:10px;border-bottom:1px solid var(--border)">Spécialité</th>
+              <th style="padding:4px 8px;color:var(--muted);font-size:10px;border-bottom:1px solid var(--border)">Gr.</th>`;
+        for (const sz of ['S1','S2','S3','S4']) {
+          html += `<th style="padding:4px 10px;color:var(--gold);font-size:10px;border-bottom:1px solid var(--border);font-family:'Orbitron',monospace">${sz}</th>`;
+        }
+        html += `</tr></thead><tbody>`;
+
+        for (const sp of cat.specialites) {
+          for (let gi=0; gi<cat.grades.length; gi++) {
+            const gr = cat.grades[gi];
+            const first = gi===0;
+            // Sum across all lieux for this spe/grade/size
+            let rowHasAny = false;
+            const sizeTotals = {};
+            for (const sz of ['S1','S2','S3','S4']) {
+              if (!sp.sizes.includes(sz)) { sizeTotals[sz]=null; continue; }
+              const t = lieux.reduce((a,l)=>a+(parseInt(getQty(l.id,`${item.name}|${sp.id}|${gr}|${sz}`))||0),0);
+              sizeTotals[sz] = t;
+              if (t>0) rowHasAny=true;
+            }
+            if (onlyStock && !rowHasAny) continue;
+            html += `<tr style="${first?'border-top:1px solid var(--border2)':''}">
+              <td style="padding:3px 12px;text-align:left;color:${first?sp.color:'var(--muted)'};font-size:${first?'13':'11'}px;font-weight:${first?'600':'400'};font-family:'Exo 2',sans-serif">
+                ${first?sp.label:''}
+              </td>
+              <td style="padding:3px 8px;color:${sp.color};font-family:'Orbitron',monospace;font-size:10px;font-weight:700">${gr}</td>`;
+            for (const sz of ['S1','S2','S3','S4']) {
+              const t = sizeTotals[sz];
+              if (t===null) {
+                html += `<td style="padding:3px 10px;color:var(--border2)">—</td>`;
+              } else {
+                html += `<td style="padding:3px 10px;color:${t>0?'var(--cyan)':'var(--muted)'};${t>0?'font-weight:700;text-shadow:var(--neon-cyan)':''}">${t>0?t:'·'}</td>`;
+              }
+            }
+            html += `</tr>`;
+          }
+        }
+        html += `</tbody></table></td></tr>`;
+      }
+    }
+
+        html += `</tbody></table></div></div>`;
+  }
+
+  if (!html) html = `<div style="padding:60px;text-align:center;color:var(--muted);font-family:'Share Tech Mono',monospace;">Aucun stock — Clique sur un lieu dans le menu</div>`;
+  document.getElementById('content').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════
+// EVENT HANDLERS
+// ═══════════════════════════════════════════
+function onQtyChange(el) {
+  const val = el.value.trim();
+  setQty(el.dataset.lieu, el.dataset.item, val);
+  const has = parseInt(val)>0;
+  const wrap = el.closest('.qty-wrap');
+  if (wrap) wrap.classList.toggle('active', has);
+  const row = el.closest('.item-row');
+  if (row) row.classList.toggle('has-stock', has);
+}
+function onQtyInput(el) {
+  const has = parseInt(el.value)>0;
+  const wrap = el.closest('.qty-wrap');
+  if (wrap) wrap.classList.toggle('active', has);
+}
+function stepQty(btn, delta) {
+  const input = btn.parentElement.querySelector('.qty-input');
+  const next = Math.max(0, (parseInt(input.value)||0) + delta);
+  input.value = next||'';
+  onQtyChange(input);
+}
+function onSizeInput(el) {
+  const has = parseInt(el.value) > 0;
+  el.closest('.comp-qty-wrap').classList.toggle('active', has);
+}
+
+function stepSize(btn, delta) {
+  const input = btn.parentElement.querySelector('.comp-size-input');
+  const next = Math.max(0, (parseInt(input.value)||0) + delta);
+  input.value = next || '';
+  onSizeChange(input);
+  input.closest('.comp-qty-wrap').classList.toggle('active', next > 0);
+}
+
+function stepWpnQty(btn, delta) {
+  const wrap = btn.parentElement;
+  const input = wrap.querySelector('.comp3d-input');
+  const next = Math.max(0, (parseInt(input.value)||0) + delta);
+  input.value = next || '';
+  onQtyChange(input);
+  wrap.classList.toggle('active', next > 0);
+  input.classList.toggle('active', next > 0);
+}
+
+function stepCompQty(btn, delta) {
+  const wrap = btn.parentElement;
+  const input = wrap.querySelector('.comp3d-input');
+  const next = Math.max(0, (parseInt(input.value)||0) + delta);
+  input.value = next || '';
+  onQtyChange(input);
+  wrap.classList.toggle('active', next > 0);
+  input.classList.toggle('active', next > 0);
+}
+
+function onSizeChange(el) {
+  const val = el.value.trim();
+  setCompSize(el.dataset.lieu, el.dataset.item, el.dataset.size, val);
+  const has = parseInt(val) > 0;
+  el.closest('.comp-qty-wrap').classList.toggle('active', has);
+  const row = el.closest('.item-row');
+  if (row) {
+    const sz = getCompSizes(el.dataset.lieu, el.dataset.item);
+    row.classList.toggle('has-stock', Object.values(sz).some(v=>parseInt(v)>0));
+  }
+}
+function onNoteChange(el) { setNote(el.dataset.lieu, el.dataset.item, el.value); }
+
+// ═══════════════════════════════════════════
+// MODAL / TOAST
+// ═══════════════════════════════════════════
+function showModal(id) { document.getElementById('modal'+id.charAt(0).toUpperCase()+id.slice(1)).classList.add('show'); }
+function closeModal(id) { document.getElementById('modal'+id.charAt(0).toUpperCase()+id.slice(1)).classList.remove('show'); }
+let toastTimer=null;
+function showToast(msg,err=false) {
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.style.borderColor=err?'var(--red)':'var(--green2)'; el.style.color=err?'var(--red)':'var(--green)';
+  el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2500);
+}
+
+init();
+autoSync();
+</script>
+</body>
+</html>
